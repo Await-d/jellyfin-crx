@@ -15,8 +15,12 @@ Chrome 扩展设置 > 开发者模式 > 加载已解压的扩展程序 > 直接�
 # Docker版 (如遇脚本更新, 重新执行即可)
 # 注意: 需要能访问的上Github的环境
 # 执行后需要输入容器名!
+
 ```
+# github
 wget -O script.sh --no-check-certificate https://raw.githubusercontent.com/Await-d/jellyfin-crx/master/script.sh && bash script.sh
+# gitee
+wget -O script.sh --no-check-certificate https://gitee.com/await29/jellyfin-crxj/raw/master/script.sh && bash script.sh
 ```
 
 ---
