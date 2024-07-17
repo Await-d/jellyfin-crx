@@ -56,6 +56,6 @@ else
     echo "成功！Index.html 首次安装！"
 fi
 #删除文件
-rm -rf style.css common-utils.js jquery-3.6.0.min.js md5.min.js main.js index.html
+rm -rf style.css common-utils.js jquery-3.6.0.min.js md5.min.js main.js index.html script.sh
 echo "请刷新Jellyfin首页查看！"
 
