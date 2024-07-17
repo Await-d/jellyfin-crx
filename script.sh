@@ -56,9 +56,13 @@ else
     echo "成功！Index.html 首次安装！"
 fi
 #打印当前目录地址
-echo "当前目录地址：$(pwd)"
 rm -rf style.css common-utils.js jquery-3.6.0.min.js md5.min.js main.js index.html script.sh
-#打印当前目录下面的文件
-ls -l
-echo "请刷新Jellyfin首页查看！"
+# 判断是否删除成功 判定条件 style.css 是否存在
+if [ -f style.css ]; then
+    echo "删除失败！请手动删除！"
+    echo "当前下载目录地址：$(pwd)"
+    echo "手动删除指令为：cd $(pwd) && rm -rf style.css common-utils.js jquery-3.6.0.min.js md5.min.js main.js index.html script.sh"
+else
+    echo "请刷新Jellyfin首页查看！"
+fi
 
