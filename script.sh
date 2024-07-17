@@ -55,7 +55,10 @@ else
     Installing
     echo "成功！Index.html 首次安装！"
 fi
-#删除文件
+#打印当前目录地址
+echo "当前目录地址：$(pwd)"
 rm -rf style.css common-utils.js jquery-3.6.0.min.js md5.min.js main.js index.html script.sh
+#打印当前目录下面的文件
+ls -l
 echo "请刷新Jellyfin首页查看！"
 
