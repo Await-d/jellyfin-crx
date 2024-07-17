@@ -7,13 +7,17 @@ echo "程序安装中...（如长时间未响应或下载失败，请检查网�
 docker exec -it  $name rm -rf /jellyfin/jellyfin-web/jellyfin-crx/
 docker exec -it  $name mkdir -p /jellyfin/jellyfin-web/jellyfin-crx/
 
+#定义github下载路径
+github="https://raw.githubusercontent.com/Await-d/jellyfin-crx/master"
+gitee="https://gitee.com/await29/jellyfin-crxj/raw/master"
+
 # 下载所需文件到系统
 echo "正在下载缓存文件，请稍等... ..."
-wget -q --no-check-certificate https://raw.githubusercontent.com/Await-d/jellyfin-crx/master/static/css/style.css -O style.css || { echo "错误：无法下载"; exit 1; }
-wget -q --no-check-certificate https://raw.githubusercontent.com/Await-d/jellyfin-crx/master/static/js/common-utils.js -O common-utils.js || { echo "错误：无法下载"; exit 1; }
-wget -q --no-check-certificate https://raw.githubusercontent.com/Await-d/jellyfin-crx/master/static/js/jquery-3.6.0.min.js -O jquery-3.6.0.min.js || { echo "错误：无法下载"; exit 1; }
-wget -q --no-check-certificate https://raw.githubusercontent.com/Await-d/jellyfin-crx/master/static/js/md5.min.js -O md5.min.js || { echo "错误：无法下载"; exit 1; }
-wget -q --no-check-certificate https://raw.githubusercontent.com/Await-d/jellyfin-crx/master/content/main.js -O main.js || { echo "错误：无法下载"; exit 1; }
+wget -q --no-check-certificate $github/static/css/style.css -O style.css || $gitee/static/css/style.css -O style.css  || { echo "错误：无法下载"; exit 1; }
+wget -q --no-check-certificate $github/static/js/common-utils.js -O common-utils.js || $gitee/static/js/common-utils.js -O common-utils.js || { echo "错误：无法下载"; exit 1; }
+wget -q --no-check-certificate $github/static/js/jquery-3.6.0.min.js -O jquery-3.6.0.min.js || $gitee/static/js/jquery-3.6.0.min.js -O jquery-3.6.0.min.js || { echo "错误：无法下载"; exit 1; }
+wget -q --no-check-certificate $github/static/js/md5.min.js -O md5.min.js || $gitee/static/js/md5.min.js -O md5.min.js || { echo "错误：无法下载"; exit 1; }
+wget -q --no-check-certificate $github/content/main.js -O main.js || $gitee/content/main.js -O main.js || { echo "错误：无法下载"; exit 1; }
 
 # 从系统复制文件到容器内
 docker cp style.css $name:/jellyfin/jellyfin-web/jellyfin-crx/
